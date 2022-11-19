@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "storage1": {
+      "type": "storage",
+      "connectionId": "DefaultEndpointsProtocol=https;AccountName=nteacgcesma;AccountKey=cjOLmyaYeJonu5TNJni1ILO+Q9wUqEFk0LoyxwFpyfZdf/w++O72tW37+QJpC9UUbtyqLyTwAXqi+ASttbDyeA==;EndpointSuffix=core.windows.net",
+      "dynamicId": null
+    }
+  }
+}

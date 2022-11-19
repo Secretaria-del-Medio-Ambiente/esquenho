@@ -1,0 +1,177 @@
+﻿@model EntityStores.ProfileEntity
+
+@{
+    ViewBag.Title = "NTEA";
+}
+
+<h2>Normas Técnicas Estatales Ambientales (NTEA)</h2>
+
+
+@using (Html.BeginForm("Create", "ProfileManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-horizontal">
+        <h4>Registro NTEA</h4>
+        <h5>Fecha y hora de Registro</h5> @DateTime.Now.Day @DateTime.Now.Month @DateTime.Now.Year @DateTime.Now.TimeOfDay
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProfileId, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-15">
+                @Html.EditorFor(model => model.ProfileId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProfileId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Correo, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-15">
+                @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Norma, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-15">
+                @Html.DropDownList("Norma")
+                @Html.ValidationMessageFor(model => model.Norma, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApellidoPaterno, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-15">
+                @Html.EditorFor(model => model.ApellidoPaterno, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ApellidoPaterno, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ApellidoMaterno, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-15">
+                @Html.EditorFor(model => model.ApellidoMaterno, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ApellidoMaterno, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-15">
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Perfil, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-15">
+                @Html.DropDownList("Perfil")
+                @Html.ValidationMessageFor(model => model.Perfil, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NombreDelOrganismoPúblico_EmpresaPrivada, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-15">
+                @Html.EditorFor(model => model.NombreDelOrganismoPúblico_EmpresaPrivada, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NombreDelOrganismoPúblico_EmpresaPrivada, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-15">
+                @Html.DropDownList("Estado")
+                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Municipio, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-15">
+                @Html.EditorFor(model => model.Municipio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Municipio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cargo, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-15">
+                @Html.EditorFor(model => model.Cargo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cargo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NúmeroContacto, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-15">
+                @Html.EditorFor(model => model.NúmeroContacto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NúmeroContacto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <h2>Documentos Escaneados</h2>
+        <h4>(Los documentos deberán de tener el formato PDF y tamaño menor a 10 MB)</h4>
+        <div class="form-group">
+            <label class="control-label col-md-4" for="profileFile">Oficio de solicitud</label>
+            <div class="col-md-15">
+                <input type="file" name="profileFile" accept=".pdf" class="form-control fileupload" required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-4" for="profileFileEdit">Documento para Perfil (PF: Acta de nacimiento, JC: Acta constitutiva, DP: Nombramiento o constancia de trabajo)</label>
+            <div class="col-md-15">
+                <input type="file" name="profileFileEdit" accept=".pdf" class="form-control fileupload" required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-4" for="profileFileConf">Identificación Oficial Vigente</label>
+            <div class="col-md-15">
+                <input type="file" name="profileFileConf" accept=".pdf" class="form-control fileupload" required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-4" for="profileFileExt">Comprobante de domicilio</label>
+            <div class="col-md-15">
+                <input type="file" name="profileFileExt" accept=".pdf" class="form-control fileupload" required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-4" for="profileFileAdmin">Comprobante de capacitación en manejo de arbolado</label>
+            <div class="col-md-15">
+                <input type="file" name="profileFileAdmin" accept=".pdf" class="form-control fileupload" required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-4" for="profileFileSudo">Fotografía</label>
+            <div class="col-md-15">
+                <input type="file" name="profileFileSudo" accept="image/*" class="form-control fileupload" required/>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-4" for="profileFileUser">Credencial vigente de Adscripción</label>
+            <div class="col-md-15">
+                <input type="file" name="profileFileUser" accept=".pdf" class="form-control fileupload" required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-10 col-md-offset-10">
+                <input type="submit" value="Enviar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+}

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Normas Técnicas</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: forestgreen;
+            background-color: snow;
+            border-bottom-color: forestgreen;
+        }
+
+        .card {
+            width: 1150px;
+            height: 430px;
+            padding: 45px;
+            background-color: darkseagreen;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="https://drive.google.com/uc?export=view&id=19P9a5aHzu5QAqHRYhqGum-A2B2iZIriC" height="332" width="412" class="card-img-top-center">
+        <img src="https://drive.google.com/uc?export=view&id=1dwLqp4Inh4EmIdiCUEg2fIavvffJYQWy" height="332" width="300" class="card-img-top-center">
+        <img src="https://drive.google.com/uc?export=view&id=1sasvStwmXwO4NNLzSUP7ezIR9Pf0L4Ep" height="332" width="340" class="card-img-top-center">
+    </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Normas Técnicas Estatales Ambientales (NTEA)</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

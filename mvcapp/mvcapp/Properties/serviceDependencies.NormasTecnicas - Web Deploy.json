@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "storage1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/nteacgcesma",
+      "type": "storage.azure",
+      "connectionId": "DefaultEndpointsProtocol=https;AccountName=nteacgcesma;AccountKey=cjOLmyaYeJonu5TNJni1ILO+Q9wUqEFk0LoyxwFpyfZdf/w++O72tW37+QJpC9UUbtyqLyTwAXqi+ASttbDyeA==;EndpointSuffix=core.windows.net",
+      "dynamicId": null
+    }
+  }
+}
