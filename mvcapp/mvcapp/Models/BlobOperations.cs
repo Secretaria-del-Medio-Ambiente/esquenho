@@ -57,17 +57,7 @@ namespace mvcapp.Models
             }
             return profileBlob;
         }
-        ///<param name="profileFileEdit"></param>
-        public async Task<CloudBlockBlob> UploadBlobEdit(HttpPostedFileBase profileFileEdit)
-        {
-            string blobName = Guid.NewGuid().ToString() + Path.GetExtension(profileFileEdit.FileName);
-            CloudBlockBlob profileBlobEdit = profileBlobContainer.GetBlockBlobReference(blobName);
-            using (var fs = profileFileEdit.InputStream)
-            {
-                await profileBlobEdit.UploadFromStreamAsync(fs);
-            }
-            return profileBlobEdit;
-        }
+
         ///<param name="profileFileConf"></param>
         public async Task<CloudBlockBlob> UploadBlobConf(HttpPostedFileBase profileFileConf)
         {

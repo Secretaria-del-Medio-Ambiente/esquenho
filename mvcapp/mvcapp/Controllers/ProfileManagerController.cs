@@ -60,7 +60,6 @@ namespace mvcapp.Controllers
             Create(
                ProfileEntity obj,
           HttpPostedFileBase profileFile,
-          HttpPostedFileBase profileFileEdit,
           HttpPostedFileBase profileFileConf,
           HttpPostedFileBase profileFileExt,
           HttpPostedFileBase profileFileAdmin,

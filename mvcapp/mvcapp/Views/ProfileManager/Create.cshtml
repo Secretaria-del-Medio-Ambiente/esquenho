@@ -10,8 +10,8 @@
 @using (Html.BeginForm("Create", "ProfileManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-horizontal">
-        <h4>Registro NTEA</h4>
-        <h5>Fecha de Registro</h5> @DateTime.Now.Day/@DateTime.Now.Month/@DateTime.Now.Year 
+        <h4>Trámite de renovación de registro NTEA</h4>
+        <h5>Fecha de Renovación</h5> @DateTime.Now.Day/@DateTime.Now.Month/@DateTime.Now.Year 
 
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -116,13 +116,6 @@
             <label class="control-label col-md-4" for="profileFile">Oficio de solicitud</label>
             <div class="col-md-15">
                 <input type="file" name="profileFile" accept=".pdf" class="form-control fileupload" required />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-4" for="profileFileEdit">Documento para Perfil (PF: Acta de nacimiento, JC: Acta constitutiva, DP: Nombramiento o constancia de trabajo)</label>
-            <div class="col-md-15">
-                <input type="file" name="profileFileEdit" accept=".pdf" class="form-control fileupload" required />
             </div>
         </div>
 
