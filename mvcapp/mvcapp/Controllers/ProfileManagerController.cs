@@ -78,16 +78,10 @@ namespace mvcapp.Controllers
             {
                 profileBlob = await blobOperations.UploadBlob(profileFile);
                 obj.ProfilePath = profileBlob.Uri.ToString();
-                CloudBlockBlob profileBlobEdit = await blobOperations.UploadBlob(profileFileEdit);
-                obj.ProfilePathEdit = profileBlobEdit.Uri.ToString();
                 CloudBlockBlob profileBlobConf = await blobOperations.UploadBlob(profileFileConf);
                 obj.ProfilePathConf = profileBlobConf.Uri.ToString();
                 CloudBlockBlob profileBlobExt = await blobOperations.UploadBlob(profileFileExt);
                 obj.ProfilePathExt = profileBlobExt.Uri.ToString();
-                CloudBlockBlob profileBlobAdmin = await blobOperations.UploadBlob(profileFileAdmin);
-                obj.ProfilePathAdmin = profileBlobAdmin.Uri.ToString();
-                CloudBlockBlob profileBlobSudo = await blobOperations.UploadBlob(profileFileSudo);
-                obj.ProfilePathAdmin = profileBlobSudo.Uri.ToString();
                 CloudBlockBlob profileBlobUser = await blobOperations.UploadBlob(profileFileUser);
                 obj.ProfilePathUser = profileBlobUser.Uri.ToString();
             }
