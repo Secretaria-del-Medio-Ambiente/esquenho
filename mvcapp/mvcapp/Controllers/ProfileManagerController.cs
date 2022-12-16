@@ -62,7 +62,6 @@ namespace mvcapp.Controllers
           HttpPostedFileBase profileFile,
           HttpPostedFileBase profileFileConf,
           HttpPostedFileBase profileFileExt,
-          HttpPostedFileBase profileFileAdmin,
           HttpPostedFileBase profileFileSudo,
           HttpPostedFileBase profileFileUser
 

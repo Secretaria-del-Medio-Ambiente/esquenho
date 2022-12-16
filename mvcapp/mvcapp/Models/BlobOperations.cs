@@ -79,16 +79,6 @@ namespace mvcapp.Models
             }
             return profileBlobExt;
         }
-        public async Task<CloudBlockBlob> UploadBlobAdmin(HttpPostedFileBase profileFileAdmin)
-        {
-            string blobName = Guid.NewGuid().ToString() + Path.GetExtension(profileFileAdmin.FileName);
-            CloudBlockBlob profileBlobAdmin = profileBlobContainer.GetBlockBlobReference(blobName);
-            using (var fs = profileFileAdmin.InputStream)
-            {
-                await profileBlobAdmin.UploadFromStreamAsync(fs);
-            }
-            return profileBlobAdmin;
-        }
         public async Task<CloudBlockBlob> UploadBlobSudo(HttpPostedFileBase profileFileSudo)
         {
             string blobName = Guid.NewGuid().ToString() + Path.GetExtension(profileFileSudo.FileName);

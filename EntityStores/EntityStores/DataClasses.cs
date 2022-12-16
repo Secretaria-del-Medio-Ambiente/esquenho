@@ -32,7 +32,6 @@ namespace EntityStores
         public string ProfilePath { get; set; }
         public string ProfilePathConf { get; set; }
         public string ProfilePathExt { get; set; }  
-        public string ProfilePathAdmin { get; set; }
         public string ProfilePathSudo { get; set; }
         public string ProfilePathUser { get; set; }
         public string Email { get; set; }
