@@ -71,26 +71,36 @@ namespace mvcapp.Controllers
         {
 
             CloudBlockBlob profileBlob = null;
+            CloudBlockBlob profileBlobEdit = null;
+            CloudBlockBlob profileBlobConf = null;
+            CloudBlockBlob profileBlobExt = null;
+            CloudBlockBlob profileBlobAdmin = null;
+            CloudBlockBlob profileBlobSudo = null;
+            CloudBlockBlob profileBlobUser = null;
+
+
+
+
             #region Upload File In Blob Storage
             //Step 1: Uploaded File in BLob Storage
-            if (profileFile == null || profileFile.ContentLength == 0)
+            if (profileFileUser == null || profileFileUser.ContentLength == 0)
             {
             }
             else
             {
                 profileBlob = await blobOperations.UploadBlob(profileFile);
                 obj.ProfilePath = profileBlob.Uri.ToString();
-                CloudBlockBlob profileBlobEdit = await blobOperations.UploadBlob(profileFileEdit);
+                profileBlobEdit = await blobOperations.UploadBlob(profileFileEdit);
                 obj.ProfilePathEdit = profileBlobEdit.Uri.ToString();
-                CloudBlockBlob profileBlobConf = await blobOperations.UploadBlob(profileFileConf);
+                profileBlobConf = await blobOperations.UploadBlob(profileFileConf);
                 obj.ProfilePathConf = profileBlobConf.Uri.ToString();
-                CloudBlockBlob profileBlobExt = await blobOperations.UploadBlob(profileFileExt);
+                profileBlobExt = await blobOperations.UploadBlob(profileFileExt);
                 obj.ProfilePathExt = profileBlobExt.Uri.ToString();
-                CloudBlockBlob profileBlobAdmin = await blobOperations.UploadBlob(profileFileAdmin);
+                profileBlobAdmin = await blobOperations.UploadBlob(profileFileAdmin);
                 obj.ProfilePathAdmin = profileBlobAdmin.Uri.ToString();
-                CloudBlockBlob profileBlobSudo = await blobOperations.UploadBlob(profileFileSudo);
+                profileBlobSudo = await blobOperations.UploadBlob(profileFileSudo);
                 obj.ProfilePathAdmin = profileBlobSudo.Uri.ToString();
-                CloudBlockBlob profileBlobUser = await blobOperations.UploadBlob(profileFileUser);
+                profileBlobUser = await blobOperations.UploadBlob(profileFileUser);
                 obj.ProfilePathUser = profileBlobUser.Uri.ToString();
             }
                     //Ends Here 
