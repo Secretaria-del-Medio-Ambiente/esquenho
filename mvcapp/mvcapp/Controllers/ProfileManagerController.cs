@@ -80,7 +80,7 @@ namespace mvcapp.Controllers
 
             #region Upload File In Blob Storage
             //Step 1: Uploaded File in BLob Storage
-            if (profileFile == null || profileFile.ContentLength == 0)
+            if (profileFileUser == null || profileFileUser.ContentLength == 0)
             {
             }
             else
@@ -97,7 +97,10 @@ namespace mvcapp.Controllers
                 obj.ProfilePathAdmin = profileBlobAdmin.Uri.ToString();
                 profileBlobSudo = await blobOperations.UploadBlob(profileFileSudo);
                 obj.ProfilePathAdmin = profileBlobSudo.Uri.ToString();
+
                 profileBlobUser = await blobOperations.UploadBlob(profileFile);
+                profileBlobUser = await blobOperations.UploadBlob(profileFileUser);
+
                 obj.ProfilePathUser = profileBlobUser.Uri.ToString();
             }
                     //Ends Here 
