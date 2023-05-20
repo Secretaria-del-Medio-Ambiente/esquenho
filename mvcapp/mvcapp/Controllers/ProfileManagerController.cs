@@ -37,7 +37,7 @@ namespace mvcapp.Controllers
             Profile.Email = User.Identity.Name; // The Login Email
             ViewBag.Norma = new SelectList(new List<string>()
             {
-               "NTEA - 18","NTEA - 19"
+               "NTEA - 18","NTEA - 19","NTEA - 18 & 19"
             });
             ViewBag.Perfil = new SelectList(new List<string>()
             {
@@ -78,9 +78,6 @@ namespace mvcapp.Controllers
             CloudBlockBlob profileBlobSudo = null;
             CloudBlockBlob profileBlobUser = null;
 
-
-
-
             #region Upload File In Blob Storage
             //Step 1: Uploaded File in BLob Storage
             if (profileFileUser == null || profileFileUser.ContentLength == 0)
@@ -100,7 +97,10 @@ namespace mvcapp.Controllers
                 obj.ProfilePathAdmin = profileBlobAdmin.Uri.ToString();
                 profileBlobSudo = await blobOperations.UploadBlob(profileFileSudo);
                 obj.ProfilePathAdmin = profileBlobSudo.Uri.ToString();
+
+                profileBlobUser = await blobOperations.UploadBlob(profileFile);
                 profileBlobUser = await blobOperations.UploadBlob(profileFileUser);
+
                 obj.ProfilePathUser = profileBlobUser.Uri.ToString();
             }
                     //Ends Here 
