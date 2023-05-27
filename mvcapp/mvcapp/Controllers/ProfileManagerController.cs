@@ -60,10 +60,8 @@ namespace mvcapp.Controllers
             Create(
                ProfileEntity obj,
           HttpPostedFileBase profileFile,
-          HttpPostedFileBase profileFileEdit,
           HttpPostedFileBase profileFileConf,
           HttpPostedFileBase profileFileExt,
-          HttpPostedFileBase profileFileAdmin,
           HttpPostedFileBase profileFileSudo,
           HttpPostedFileBase profileFileUser
 
@@ -87,12 +85,19 @@ namespace mvcapp.Controllers
             {
                 profileBlob = await blobOperations.UploadBlob(profileFile);
                 obj.ProfilePath = profileBlob.Uri.ToString();
+ renovacion
+                CloudBlockBlob profileBlobConf = await blobOperations.UploadBlob(profileFileConf);
+
                 profileBlobEdit = await blobOperations.UploadBlob(profileFileEdit);
                 obj.ProfilePathEdit = profileBlobEdit.Uri.ToString();
                 profileBlobConf = await blobOperations.UploadBlob(profileFileConf);
+ master
                 obj.ProfilePathConf = profileBlobConf.Uri.ToString();
                 profileBlobExt = await blobOperations.UploadBlob(profileFileExt);
                 obj.ProfilePathExt = profileBlobExt.Uri.ToString();
+renovacion
+                CloudBlockBlob profileBlobUser = await blobOperations.UploadBlob(profileFileUser);
+
                 profileBlobAdmin = await blobOperations.UploadBlob(profileFileAdmin);
                 obj.ProfilePathAdmin = profileBlobAdmin.Uri.ToString();
                 profileBlobSudo = await blobOperations.UploadBlob(profileFileSudo);
@@ -101,6 +106,7 @@ namespace mvcapp.Controllers
                 profileBlobUser = await blobOperations.UploadBlob(profileFile);
                 profileBlobUser = await blobOperations.UploadBlob(profileFileUser);
 
+ master
                 obj.ProfilePathUser = profileBlobUser.Uri.ToString();
             }
                     //Ends Here 

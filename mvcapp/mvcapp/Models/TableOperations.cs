@@ -84,10 +84,8 @@ namespace mvcapp.Models
                     Perfil = item.Perfil,
                     Cargo = item.Cargo,
                     ProfilePath = item.ProfilePath,
-                    ProfilePathEdit = item.ProfilePathEdit,
                     ProfilePathConf = item.ProfilePathConf,
                     ProfilePathExt = item.ProfilePathExt,
-                    ProfilePathAdmin = item.ProfilePathAdmin,
                     ProfilePathSudo = item.ProfilePathSudo,
                     ProfilePathUser = item.ProfilePathUser,
 
