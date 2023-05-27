@@ -4,16 +4,22 @@
     ViewBag.Title = "NTEA";
 }
 
-<h2>Normas Técnicas Estatales Ambientales (NTEA)</h2>
+<h2><div style='text-align:center'>Normas Técnicas Estatales Ambientales (NTEA)</div></h2>
 
 
 @using (Html.BeginForm("Create", "ProfileManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-horizontal">
+ renovacion
         <h4>Trámite de renovación de registro NTEA</h4>
         <h5>Fecha de Renovación</h5> @DateTime.Now.Day/@DateTime.Now.Month/@DateTime.Now.Year 
 
 
+
+        <h4><div style="text-align:center">Registro NTEA</div></h4>
+        <h5><div style="text-align:center">Fecha de Registro</div></h5> <div style="text-align:center">@DateTime.Now.Day @DateTime.Now.Month @DateTime.Now.Year </div>
+        <br />
+master
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.ProfileId, htmlAttributes: new { @class = "control-label col-md-4" })
@@ -110,8 +116,9 @@
             </div>
         </div>
 
-        <h2>Documentos Escaneados</h2>
-        <h4>(Los documentos deberán de tener el formato PDF y tamaño menor a 10 MB)</h4>
+        <h2><div style="text-align:center">Documentos escaneados</div></h2>
+        <h4><div style="text-align:center">(Los documentos deberán de tener el formato PDF y tamaño menor a 10 MB)</div></h4>
+        <br />
         <div class="form-group">
             <label class="control-label col-md-4" for="profileFile">Oficio de solicitud</label>
             <div class="col-md-15">
@@ -142,9 +149,15 @@
 
 
         <div class="form-group">
+ renovacion
             <label class="control-label col-md-4" for="profileFileUser">Credencial expirada a color o acta de extravío</label>
             <div class="col-md-15">
                 <input type="file" name="profileFileUser" accept=".pdf" class="form-control fileupload" required />
+
+            <label class="control-label col-md-4" for="profileFileUser">Credencial vigente de Adscripción (Dependencia Pública o Jurídico Colectivo)</label>
+                <div class="col-md-15">
+                <input type="file" name="profileFileUser" accept=".pdf" class="form-control fileupload"/>
+ master
             </div>
         </div>
 
