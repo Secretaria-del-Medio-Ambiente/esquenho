@@ -4,13 +4,28 @@
     ViewBag.Title = "NTEA";
 }
 
+
+<h2><div style='text-align:center'>Normas Técnicas Estatales Ambientales (NTEA)</div></h2>
 <h2><div style='text-align:center'>Normas Técnicas Estatales Ambientales del Estado de México (NTEA)</div></h2>
+
 
 
 @using (Html.BeginForm("Create", "ProfileManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-horizontal">
 
+        <h4><div style='text-align:center'>Trámite de renovación de registro NTEA</div></h4>
+        <h5><div style='text-align:center'>Fecha de Renovación</div></h5> <div style='text-align:center'>
+    @DateTime.Now.Day/@DateTime.Now.Month/@DateTime.Now.Year</div>
+
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProfileId, htmlAttributes: new { @class = "control-label col-md-4" })
+        <div class="col-md-15">
+            @Html.EditorFor(model => model.ProfileId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProfileId, "", new { @class = "text-danger" })
+=======
         <h4><div style="text-align:center">Nuevo Registro NTEA</div></h4>
         <h4><div style='text-align:center'>Registro NTEA</div></h4>
         <h5><div style='text-align:center'>Fecha de Registro</div></h5><div style='text-align:center'>
@@ -66,7 +81,8 @@
                 @Html.EditorFor(model => model.ApellidoPaterno, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ApellidoPaterno, "", new { @class = "text-danger" })
             </div>
- master
+
+
         </div>
     </div>
 
@@ -83,6 +99,7 @@
         <div class="col-md-15">
             @Html.DropDownList("Norma")
             @Html.ValidationMessageFor(model => model.Norma, "", new { @class = "text-danger" })
+
         </div>
     </div>
     <div class="form-group">
@@ -92,6 +109,17 @@
             @Html.ValidationMessageFor(model => model.ApellidoPaterno, "", new { @class = "text-danger" })
         </div>
     </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ApellidoPaterno, htmlAttributes: new { @class = "control-label col-md-4" })
+        <div class="col-md-15">
+            @Html.EditorFor(model => model.ApellidoPaterno, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ApellidoPaterno, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
 
     <div class="form-group">
         @Html.LabelFor(model => model.ApellidoMaterno, htmlAttributes: new { @class = "control-label col-md-4" })
@@ -141,12 +169,40 @@
         </div>
     </div>
 
-keesh
+
     <div class="form-group">
         @Html.LabelFor(model => model.Cargo, htmlAttributes: new { @class = "control-label col-md-4" })
         <div class="col-md-15">
             @Html.EditorFor(model => model.Cargo, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Cargo, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NúmeroContacto, htmlAttributes: new { @class = "control-label col-md-4" })
+        <div class="col-md-15">
+            @Html.EditorFor(model => model.NúmeroContacto, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NúmeroContacto, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <h2><div style='text-align:center'>Documentos Escaneados</div></h2>
+    <h4><div style='text-align:center'>(Los documentos deberán de tener el formato PDF y tamaño menor a 10 MB)</div></h4>
+    <div class="form-group">
+        <label class="control-label col-md-4" for="profileFile">Oficio de solicitud</label>
+        <div class="col-md-15">
+            <input type="file" name="profileFile" accept=".pdf" class="form-control fileupload" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-4" for="profileFileConf">Identificación Oficial Vigente</label>
+        <div class="col-md-15">
+            <input type="file" name="profileFileConf" accept=".pdf" class="form-control fileupload" required />
+        </div>
+    </div>
+
 
         <h2><div style="text-align:center">Documentos escaneados</div></h2>
         <h4><div style="text-align:center">(Los documentos deberán de tener el formato PDF y tamaño menor a 10 MB)</div></h4>
@@ -160,7 +216,7 @@ master
         </div>
     </div>
 
- keesh
+
     <div class="form-group">
         @Html.LabelFor(model => model.NúmeroContacto, htmlAttributes: new { @class = "control-label col-md-4" })
         <div class="col-md-15">
@@ -195,7 +251,7 @@ master
             <div class="col-md-15">
                 <input type="file" name="profileFileConf" accept=".pdf" class="form-control fileupload" required />
             </div>
- master
+
         </div>
     </div>
 
@@ -236,8 +292,19 @@ master
     </div>
 
 
+    <div class="form-group">
+        <label class="control-label col-md-4" for="profileFileExt">Comprobante de domicilio</label>
+        <div class="col-md-15">
+            <input type="file" name="profileFileExt" accept=".pdf" class="form-control fileupload" required />
+        </div>
+    </div>
 
     <div class="form-group">
+
+        <label class="control-label col-md-4" for="profileFileSudo">Fotografía tamaño infantil</label>
+        <div class="col-md-15">
+            <input type="file" name="profileFileSudo" accept="image/*" class="form-control fileupload" required />
+
         <label class="control-label col-md-4" for="profileFileUser">Credencial vigente de Adscripción</label>
         <div class="col-md-15">
             <input type="file" name="profileFileUser" accept=".pdf" class="form-control fileupload" required />
@@ -252,10 +319,27 @@ master
                 <div class="col-md-15">
                 <input type="file" name="profileFileUser" accept=".pdf" class="form-control fileupload"/>
  
-        </div>
 
         </div>
     </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-md-4" for="profileFileUser">Credencial expirada a color o acta de extravío</label>
+        <div class="col-md-15">
+            <input type="file" name="profileFileUser" accept=".pdf" class="form-control fileupload" required />
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-10 col-md-offset-10">
+            <input type="submit" value="Enviar" class="btn btn-default" />
+
+
+        </div>
+    </div>
+</div>
 
     <div class="form-group">
         <div class="col-md-offset-10 col-md-offset-10">
