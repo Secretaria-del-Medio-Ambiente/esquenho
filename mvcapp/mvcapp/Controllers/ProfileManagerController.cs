@@ -37,7 +37,11 @@ namespace mvcapp.Controllers
             Profile.Email = User.Identity.Name; // The Login Email
             ViewBag.Norma = new SelectList(new List<string>()
             {
+
+               "NTEA-18","NTEA-19","NTEA-18 & NTEA-19"
+
                "NTEA - 18","NTEA - 19","NTEA - 18 & 19"
+
             });
             ViewBag.Perfil = new SelectList(new List<string>()
             {
