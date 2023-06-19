@@ -4,13 +4,13 @@
     ViewBag.Title = "NTEA";
 }
 
-<h2><div style='text-align:center'>Normas Técnicas Estatales Ambientales (NTEA)</div></h2>
+<h2><div style='text-align:center'>Normas Técnicas Estatales Ambientales del Estado de México (NTEA)</div></h2>
 
 
 @using (Html.BeginForm("Create", "ProfileManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-horizontal">
-        <h4><div style="text-align:center">Registro NTEA</div></h4>
+        <h4><div style="text-align:center">Nuevo Registro NTEA</div></h4>
         <h5><div style="text-align:center">Fecha de Registro</div></h5> <div style="text-align:center">@DateTime.Now.Day @DateTime.Now.Month @DateTime.Now.Year </div>
         <br />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -141,7 +141,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-4" for="profileFileAdmin">Comprobante de capacitación en manejo de arbolado</label>
+            <label class="control-label col-md-4" for="profileFileAdmin">Comprobante de capacitación</label>
             <div class="col-md-15">
                 <input type="file" name="profileFileAdmin" accept=".pdf" class="form-control fileupload" required/>
             </div>
