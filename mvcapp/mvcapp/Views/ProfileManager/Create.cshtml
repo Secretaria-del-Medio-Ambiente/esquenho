@@ -11,7 +11,7 @@
 {
     <div class="form-horizontal">
         <h4><div style="text-align:center">Nuevo Registro NTEA</div></h4>
-        <h5><div style="text-align:center">Fecha de Registro</div></h5> <div style="text-align:center">@DateTime.Now.Day @DateTime.Now.Month @DateTime.Now.Year </div>
+        <h5><div style="text-align:center">Fecha de Registro</div></h5> <div style="text-align:center">@DateTime.Now.Day/@DateTime.Now.Month/@DateTime.Now.Year </div>
         <br />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
