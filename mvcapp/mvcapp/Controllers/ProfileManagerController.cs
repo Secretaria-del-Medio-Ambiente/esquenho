@@ -40,7 +40,11 @@ namespace mvcapp.Controllers
 
                "NTEA-18","NTEA-19","NTEA-18 & NTEA-19"
 
+
+               "NTEA-18","NTEA-19","NTEA-18 & NTEA-19"
+
                "NTEA - 18","NTEA - 19","NTEA - 18 & 19"
+
 
             });
             ViewBag.Perfil = new SelectList(new List<string>()
@@ -99,7 +103,10 @@ namespace mvcapp.Controllers
                 obj.ProfilePathConf = profileBlobConf.Uri.ToString();
                 profileBlobExt = await blobOperations.UploadBlob(profileFileExt);
                 obj.ProfilePathExt = profileBlobExt.Uri.ToString();
-renovacion
+
+                CloudBlockBlob profileBlobSudo = await blobOperations.UploadBlob(profileFileSudo);
+                obj.ProfilePathSudo = profileBlobSudo.Uri.ToString();
+
                 CloudBlockBlob profileBlobUser = await blobOperations.UploadBlob(profileFileUser);
 
                 profileBlobAdmin = await blobOperations.UploadBlob(profileFileAdmin);
