@@ -11,6 +11,7 @@
         * {
             box-sizing: border-box;
         }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             color: forestgreen;
@@ -18,11 +19,24 @@
             border-bottom-color: forestgreen;
         }
 
-        .card {
+        .card {            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
+
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 1050px;
+
+
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 1150px;
+
+
+           width:50% 1150px;
+
             height: 430px;
             padding: 45px;
             background-color: darkseagreen;
@@ -33,12 +47,18 @@
 <body>
 
     <div class="card">
+
+        <img src="https://drive.google.com/uc?export=view&id=19P9a5aHzu5QAqHRYhqGum-A2B2iZIriC" height="332" width="412" class="card-img-top-center">
+        <img src="https://drive.google.com/uc?export=view&id=1Va9-i3J1IAu_tuioryVMwZKKpzDqUBAS" height="332" width="300" class="card-img-top-center">
+        <img src="https://drive.google.com/uc?export=view&id=1sasvStwmXwO4NNLzSUP7ezIR9Pf0L4Ep" height="332" width="340" class="card-img-top-center">
+
         <img src="https://drive.google.com/uc?export=view&id=1f7XNKNdT3h6CaNMPWvjX46s8zfHpSGaq" height="332" width="312" class="card-img-top-center">
         <img src="https://drive.google.com/uc?export=view&id=1NkuCUNjzZx6MsCk3gposzRX9Hi1wrAct" height="332" width="300" class="card-img-top-center">
         <img src="https://drive.google.com/uc?export=view&id=1Gg_ou5m2tn2WnhUWNWzrCrNTtsrSJoGc" height="332" width="340" class="card-img-top-center">
+
     </div>
 
-
+  
     <div class="container body-content">
         @RenderBody()
 
