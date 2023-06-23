@@ -56,12 +56,14 @@ namespace mvcapp.Controllers
 
         [HttpPost]
 
-        public async Task<ActionResult> 
+        public async Task<ActionResult>
             Create(
                ProfileEntity obj,
           HttpPostedFileBase profileFile,
+          HttpPostedFileBase profileFileEdit,
           HttpPostedFileBase profileFileConf,
           HttpPostedFileBase profileFileExt,
+          HttpPostedFileBase profileFileAdmin,
           HttpPostedFileBase profileFileSudo,
           HttpPostedFileBase profileFileUser
 
@@ -69,30 +71,42 @@ namespace mvcapp.Controllers
         {
 
             CloudBlockBlob profileBlob = null;
+            CloudBlockBlob profileBlobEdit = null;
+            CloudBlockBlob profileBlobConf = null;
+            CloudBlockBlob profileBlobExt = null;
+            CloudBlockBlob profileBlobAdmin = null;
+            CloudBlockBlob profileBlobSudo = null;
+            CloudBlockBlob profileBlobUser = null;
             #region Upload File In Blob Storage
             //Step 1: Uploaded File in BLob Storage
-            if (profileFile == null || profileFile.ContentLength == 0)
+            if (profileFileUser == null || profileFileUser.ContentLength == 0)
             {
             }
             else
             {
                 profileBlob = await blobOperations.UploadBlob(profileFile);
                 obj.ProfilePath = profileBlob.Uri.ToString();
-                CloudBlockBlob profileBlobConf = await blobOperations.UploadBlob(profileFileConf);
+                profileBlobEdit = await blobOperations.UploadBlob(profileFileEdit);
+                obj.ProfilePathEdit = profileBlobEdit.Uri.ToString();
+                profileBlobConf = await blobOperations.UploadBlob(profileFileConf);
                 obj.ProfilePathConf = profileBlobConf.Uri.ToString();
-                CloudBlockBlob profileBlobExt = await blobOperations.UploadBlob(profileFileExt);
+                profileBlobExt = await blobOperations.UploadBlob(profileFileExt);
                 obj.ProfilePathExt = profileBlobExt.Uri.ToString();
-                CloudBlockBlob profileBlobUser = await blobOperations.UploadBlob(profileFileUser);
+                profileBlobAdmin = await blobOperations.UploadBlob(profileFileAdmin);
+                obj.ProfilePathAdmin = profileBlobAdmin.Uri.ToString();
+                profileBlobSudo = await blobOperations.UploadBlob(profileFileSudo);
+                obj.ProfilePathAdmin = profileBlobSudo.Uri.ToString();
+                profileBlobUser = await blobOperations.UploadBlob(profileFileUser);
                 obj.ProfilePathUser = profileBlobUser.Uri.ToString();
             }
-                    //Ends Here 
-                    #endregion
+            //Ends Here 
+            #endregion
 
-                    #region Save Information in Table Storage
-                    //Step 2: Save the Infromation in the Table Storage
+            #region Save Information in Table Storage
+            //Step 2: Save the Infromation in the Table Storage
 
-                    //Get the Original File Size
-                    obj.Email = User.Identity.Name; // The Login Email
+            //Get the Original File Size
+            obj.Email = User.Identity.Name; // The Login Email
             obj.RowKey = obj.ProfileId.ToString();
             obj.PartitionKey = obj.Email;
             //Save the File in the Table
