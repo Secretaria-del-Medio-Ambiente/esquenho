@@ -30,14 +30,16 @@ namespace EntityStores
         public string Cargo { get; set; }
         public string NúmeroContacto { get; set; }
         public string ProfilePath { get; set; }
+        public string ProfilePathEdit { get; set; }
         public string ProfilePathConf { get; set; }
-        public string ProfilePathExt { get; set; }  
+        public string ProfilePathExt { get; set; }
+        public string ProfilePathAdmin { get; set; }
         public string ProfilePathSudo { get; set; }
         public string ProfilePathUser { get; set; }
         public string Email { get; set; }
     }
 
-     
+
 
 
 
@@ -65,5 +67,5 @@ namespace EntityStores
     //    }
 
     //}
-    
+
 }

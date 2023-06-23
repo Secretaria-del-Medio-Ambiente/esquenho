@@ -14,16 +14,16 @@ namespace mvcapp.Models
     /// <summary>
     /// Class to Store BLOB Info
     /// </summary>
-    
-    
-    
+
+
+
     /// <summary>
     /// Class to Work with Blob
     /// </summary>
     public class BlobOperations
     {
         private static CloudBlobContainer profileBlobContainer;
-        
+
         /// <summary>
         /// Initialize BLOB and Queue Here
         /// </summary>
@@ -37,7 +37,7 @@ namespace mvcapp.Models
             profileBlobContainer = blobClient.GetContainerReference("profiles");
             //Create Blob Container if not exist
             profileBlobContainer.CreateIfNotExists();
-         }
+        }
 
 
         /// <summary>
@@ -57,7 +57,17 @@ namespace mvcapp.Models
             }
             return profileBlob;
         }
-
+        ///<param name="profileFileEdit"></param>
+        public async Task<CloudBlockBlob> UploadBlobEdit(HttpPostedFileBase profileFileEdit)
+        {
+            string blobName = Guid.NewGuid().ToString() + Path.GetExtension(profileFileEdit.FileName);
+            CloudBlockBlob profileBlobEdit = profileBlobContainer.GetBlockBlobReference(blobName);
+            using (var fs = profileFileEdit.InputStream)
+            {
+                await profileBlobEdit.UploadFromStreamAsync(fs);
+            }
+            return profileBlobEdit;
+        }
         ///<param name="profileFileConf"></param>
         public async Task<CloudBlockBlob> UploadBlobConf(HttpPostedFileBase profileFileConf)
         {
@@ -78,6 +88,16 @@ namespace mvcapp.Models
                 await profileBlobExt.UploadFromStreamAsync(fs);
             }
             return profileBlobExt;
+        }
+        public async Task<CloudBlockBlob> UploadBlobAdmin(HttpPostedFileBase profileFileAdmin)
+        {
+            string blobName = Guid.NewGuid().ToString() + Path.GetExtension(profileFileAdmin.FileName);
+            CloudBlockBlob profileBlobAdmin = profileBlobContainer.GetBlockBlobReference(blobName);
+            using (var fs = profileFileAdmin.InputStream)
+            {
+                await profileBlobAdmin.UploadFromStreamAsync(fs);
+            }
+            return profileBlobAdmin;
         }
         public async Task<CloudBlockBlob> UploadBlobSudo(HttpPostedFileBase profileFileSudo)
         {

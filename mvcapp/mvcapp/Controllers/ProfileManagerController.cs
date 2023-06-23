@@ -41,11 +41,6 @@ namespace mvcapp.Controllers
                "NTEA-18","NTEA-19","NTEA-18 & NTEA-19"
 
 
-               "NTEA-18","NTEA-19","NTEA-18 & NTEA-19"
-
-               "NTEA - 18","NTEA - 19","NTEA - 18 & 19"
-
-
             });
             ViewBag.Perfil = new SelectList(new List<string>()
             {
@@ -64,12 +59,14 @@ namespace mvcapp.Controllers
 
         [HttpPost]
 
-        public async Task<ActionResult> 
+        public async Task<ActionResult>
             Create(
                ProfileEntity obj,
           HttpPostedFileBase profileFile,
+          HttpPostedFileBase profileFileEdit,
           HttpPostedFileBase profileFileConf,
           HttpPostedFileBase profileFileExt,
+          HttpPostedFileBase profileFileAdmin,
           HttpPostedFileBase profileFileSudo,
           HttpPostedFileBase profileFileUser
 
@@ -93,13 +90,20 @@ namespace mvcapp.Controllers
             {
                 profileBlob = await blobOperations.UploadBlob(profileFile);
                 obj.ProfilePath = profileBlob.Uri.ToString();
- renovacion
+
+                profileBlobEdit = await blobOperations.UploadBlob(profileFileEdit);
+                obj.ProfilePathEdit = profileBlobEdit.Uri.ToString();
+                profileBlobConf = await blobOperations.UploadBlob(profileFileConf);
+                obj.ProfilePathConf = profileBlobConf.Uri.ToString();
+                profileBlobExt = await blobOperations.UploadBlob(profileFileExt);
+                obj.ProfilePathExt = profileBlobExt.Uri.ToString();
+
                 CloudBlockBlob profileBlobConf = await blobOperations.UploadBlob(profileFileConf);
 
                 profileBlobEdit = await blobOperations.UploadBlob(profileFileEdit);
                 obj.ProfilePathEdit = profileBlobEdit.Uri.ToString();
                 profileBlobConf = await blobOperations.UploadBlob(profileFileConf);
- master
+
                 obj.ProfilePathConf = profileBlobConf.Uri.ToString();
                 profileBlobExt = await blobOperations.UploadBlob(profileFileExt);
                 obj.ProfilePathExt = profileBlobExt.Uri.ToString();
@@ -114,20 +118,22 @@ namespace mvcapp.Controllers
                 profileBlobSudo = await blobOperations.UploadBlob(profileFileSudo);
                 obj.ProfilePathAdmin = profileBlobSudo.Uri.ToString();
 
+                profileBlobUser = await blobOperations.UploadBlob(profileFileUser);
+
+
                 profileBlobUser = await blobOperations.UploadBlob(profileFile);
                 profileBlobUser = await blobOperations.UploadBlob(profileFileUser);
 
- master
                 obj.ProfilePathUser = profileBlobUser.Uri.ToString();
             }
-                    //Ends Here 
-                    #endregion
+            //Ends Here 
+            #endregion
 
-                    #region Save Information in Table Storage
-                    //Step 2: Save the Infromation in the Table Storage
+            #region Save Information in Table Storage
+            //Step 2: Save the Infromation in the Table Storage
 
-                    //Get the Original File Size
-                    obj.Email = User.Identity.Name; // The Login Email
+            //Get the Original File Size
+            obj.Email = User.Identity.Name; // The Login Email
             obj.RowKey = obj.ProfileId.ToString();
             obj.PartitionKey = obj.Email;
             //Save the File in the Table
